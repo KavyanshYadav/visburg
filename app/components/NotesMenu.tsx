@@ -1,6 +1,6 @@
 import React from 'react'
 
-function NotesCard({id}){
+function NotesCard(){
     return(
         <div className='flex p-1 min-h-20 bg-[#2d2929] rounded-sm border-[#373737] border-solid border-2'>
             <h2>English Group</h2>
