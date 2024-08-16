@@ -15,7 +15,7 @@ const NotesMenu = () => {
   return (
     <div className='w-full'>NotesMenu
         <div className='flex gap-2 p-3 w-full bg-red-500 flex-wrap'>
-         {cards.map((e,index)=><NotesCard id={index}/>)}
+         {cards.map((e,index)=><NotesCard key={index}/>)}
         </div>
 
     </div>
