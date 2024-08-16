@@ -3,9 +3,14 @@ import { useAuth } from "@/context/AuthContex"
 import { FaceIcon } from "@radix-ui/react-icons"
 import { Avatar, Button } from "@radix-ui/themes"
 
-const SideButton = ({text="none",icon,...Props}) =>{
+interface SideButtonType {
+    text:string | null| undefined,
+    icon:React.ReactElement| string 
+}
+
+const SideButton:React.FC<SideButtonType> = ({text="none",icon,...props}) =>{
     return(
-        <Button {...Props}  className="bg-transparent  w-full hover:bg-black transition-all justify-start "  color="indigo">{icon}{text}</Button>
+        <Button {...props}  className="bg-transparent  w-full hover:bg-black transition-all justify-start "  color="indigo">{icon}{text}</Button>
     )
 }
 
@@ -14,7 +19,7 @@ const Sidebar = () => {
     console.log(user?.displayName)
   return (
     <div className="flex p-3 pt-1 pb-0 flex-col h-full">
-    <SideButton text={user?.displayName} icon={<Avatar size="1" src={user?.photoURL}></Avatar>} />
+    <SideButton text={user?.displayName} icon={<Avatar size="1" src={user?.photoURL || ""} fallback={""}></Avatar>} />
     <div className="flex-1 text-[#9b9b9b]">
         <SideButton text="search" icon="d" />
         <SideButton text="search" icon="d" />
